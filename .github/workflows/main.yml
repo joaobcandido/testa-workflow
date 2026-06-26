@@ -1,0 +1,21 @@
+name: Workflow Usando Action Remota
+
+on: [push]
+
+jobs:
+  meu_job:
+    runs-on: ubuntu-latest
+    name: Um job para dizer olá de outro repo
+    steps:
+      # O checkout do seu projeto ainda é útil na maioria dos casos
+      - uses: actions/checkout@v4
+
+      # AGORA, em vez de './', você aponta para o repositório da action
+      - name: Executa a Hello world action remota
+        id: hello
+        uses: joaobcandido/hello-world-javascript-action
+        with:
+          who-to-greet: 'Outro Repositório'
+
+      - name: Pega a hora da saída
+        run: echo "A hora foi ${{ steps.hello.outputs.time }}"
