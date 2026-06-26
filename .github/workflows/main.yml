@@ -13,7 +13,7 @@ jobs:
       # AGORA, em vez de './', você aponta para o repositório da action
       - name: Executa a Hello world action remota
         id: hello
-        uses: joaobcandido/hello-world-javascript-action
+        uses: joaobcandido/hello-world-javascript-action@v1
         with:
           who-to-greet: 'Outro Repositório'
 
